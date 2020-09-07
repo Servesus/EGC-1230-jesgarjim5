@@ -11,6 +11,21 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import os
+import django_heroku
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+BASEURL = 'https://septiembre-segunda-prueba.herokuapp.com'
+APIS = {
+    	'authentication': 'https://septiembre-segunda-prueba.herokuapp.com', 
+    	'base': 'https://septiembre-segunda-prueba.herokuapp.com',
+    	'booth': 'https://septiembre-segunda-prueba.herokuapp.com',
+    	'census': 'https://septiembre-segunda-prueba.herokuapp.com',
+    	'mixnet': 'https://septiembre-segunda-prueba.herokuapp.com',
+   	'postproc': 'https://septiembre-segunda-prueba.herokuapp.com',
+    	'store': 'https://septiembre-segunda-prueba.herokuapp.com',
+    	'visualizer': 'https://septiembre-segunda-prueba.herokuapp.com',
+    	'voting': 'https://septiembre-segunda-prueba.herokuapp.com',
+}
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -160,3 +175,4 @@ except ImportError:
 
 
 INSTALLED_APPS = INSTALLED_APPS + MODULES
+django_heroku.settings(locals())

@@ -17,7 +17,13 @@ install:
 - pip install -r requirements.txt
 script:
 - cd decide
+- cp travis_local_settings.py local_settings.py
 - python ./manage.py test --keepdb
 notifications:
   email: false
-
+deploy:
+  provider: heroku
+  app: "septiembre-segunda-prueba"
+  strategy: git
+  api_key:
+    secure: h1BgLXscNeO0vmbyA/rm/4L6KI+Pe0vpJLE9ZTRpYxzCnwvvWEhthYvwID0XxyIPXYgnyiGnwJPELGShSb8gHSv958HIvIcA8QRAql0f3hqKk3KAxUG7vVW6bv8S5RtQrFQlTc3H2Gss78wJnKB+f7cn76lBs4fa25874XnbKLvI/ir8TPgHKHmXArsH8jR4T0TkPXr0rIWHoQUc7AgLmNhX9BVfcL5II8OlZakfEtBFmrvBSuHjofblzRMfPNfD4oFxLV77oBz4+FCRVvI5gr3+HAvXpeRYnDq0RVC3G6tSbemrNLmwow0rBVyL+aN8RNJB4vE1Crz5fnNtQpWkNU1sbc2FM/wlqeTua4/qoSyYaK61NJZdktiljo7Alnom1+ONDPkUW6KADMTX9v/+88DUpXuylEoPkjaDqq9wKUkwa2qb5tAz+O6RHefnNrf8k/nARB24e0FCFrimc3j1tSaWi82MZVZAzxSdKY/hL+hcQ0lQH21bPZHkSybIY6QSsIaXlsjUVP0J4UMRF1DH84cXS8FIWj/zN2jMq3VL13BjiJdM0PWwO/oGsRtqELKfwQROmb4NlKCiaCGUlqf1mfI8bR8FsbrO8iFfi5+QypXCHOsYTcLNWWP5O8ooIPssSEHEGaAqqPCkBwSPSpeivU2uPvkjttKeELjgo/T5rWg=
